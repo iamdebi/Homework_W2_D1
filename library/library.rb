@@ -5,9 +5,13 @@ class Library
     @student_name = student_name
     @due_date = due_date
     @rental_details = {
-         'student_name'=> @student_name,
-         'due_date'=> @due_date
+         'Student Name'=> @student_name,
+         'Due Date'=> @due_date
        }
+    @book = {
+      "Title" => @title,
+      "Rental Details" => @rental_details
+    }
   end
 
   def title
@@ -22,8 +26,12 @@ class Library
     return @due_date
   end
 
-  def find_book_details(title)
-    return title{@rental_details}
+  def book_information(title)
+    return @book
+  end
+
+  def find_book_rental_details(@title)
+    return @rental_details
   end
 
 

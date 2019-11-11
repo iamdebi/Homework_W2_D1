@@ -23,9 +23,14 @@ class TestLibrary < MiniTest::Test
 
   def test_return_book_information
     new_book = Library.new("lord_of_the_rings", "Jeff", "01/12/16")
-    new_book.find_book_details("lord_of_the_rings")
-    book_details = new_book.find_book_details("lord_of_the_rings")
-    assert_equal({"student_name" => "Jeff", "due_date" => "01/12/16"}, book_details)
+    assert_equal( {
+    "Title" => "lord_of_the_rings", "Rental Details" => {"Student Name" => "Jeff", "Due Date" => "01/12/16"}}, new_book.book_information("lord_of_the_rings"))
+  end
+
+  def test_return_book_rental_details
+    new_book = Library.new("lord_of_the_rings", "Jeff", "01/12/16")
+    new_book.find_book_rental_details("lord_of_the_rings")
+    assert_equal("Rental Details" => {"Student Name" => "Jeff", "Due Date" => "01/12/16"}, new_book.find_book_rental_details("lord_of_the_rings"))
   end
 
 

@@ -36,9 +36,14 @@ class TestTeam < MiniTest::Test
 
   def test_player_in_players
     new_team = Team.new("ABDE FC", ["Debbie", "Jamie", "Cheryl", "Amy"], "Fiona")
-    new_team.is_a_player("Debbie")
-    player_in_team = new_team.is_a_player("Debbie")
-    assert_equal(true, player_in_team)
+    result = new_team.is_a_player("Debbie")
+    assert_equal(true, result)
+  end
+
+  def test_player_in_players
+    new_team = Team.new("ABDE FC", ["Debbie", "Jamie", "Cheryl", "Amy"], "Fiona")
+    result = new_team.is_a_player("Phill")
+    assert_equal(false, result)
   end
 
   def test_points
